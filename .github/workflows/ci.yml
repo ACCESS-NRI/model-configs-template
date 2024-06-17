@@ -25,7 +25,7 @@ on:
 jobs:
   pr:
     name: PR
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' && github.repository != 'ACCESS-NRI/model-configs-template'
     uses: access-nri/model-config-tests/.github/workflows/config-pr-1-ci.yml@main
     secrets: inherit
     permissions:
@@ -35,7 +35,7 @@ jobs:
 
   pr-comment:
     name: Comment
-    if: github.event_name == 'issue_comment'
+    if: github.event_name == 'issue_comment' && github.repository != 'ACCESS-NRI/model-configs-template'
     uses: access-nri/model-config-tests/.github/workflows/config-pr-2-confirm.yml@main
     secrets: inherit
     permissions:
@@ -44,7 +44,7 @@ jobs:
 
   bump-tag:
     name: Tag Bump
-    if: github.event_name == 'push'
+    if: github.event_name == 'push' && github.repository != 'ACCESS-NRI/model-configs-template'
     uses: access-nri/model-config-tests/.github/workflows/config-pr-3-bump-tag.yml@main
     secrets: inherit
     permissions:

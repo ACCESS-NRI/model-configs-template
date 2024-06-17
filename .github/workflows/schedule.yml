@@ -7,6 +7,8 @@ on:
     - cron: '0 0 1 * *'  # once a month
 jobs:
   checks:
+    name: Check
+    if: github.repository != 'ACCESS-NRI/model-configs-template'
     uses: access-nri/model-config-tests/.github/workflows/config-schedule-1-ci.yml@main
     secrets: inherit
     permissions:
