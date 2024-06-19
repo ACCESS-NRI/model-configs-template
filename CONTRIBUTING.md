@@ -8,7 +8,7 @@ Since the logic in the CI infrastructure is quite involved, it would be a good i
 
 ## Dev and Release branches
 
-Each configuration has a `dev-*` and a `release-*` branch. They differ in the CI checks that are run when pull requests are made to update the branch. Any branch starting with either `dev-*` or  `release-*` are protected branches. You cannot (and should not) modify them directly or create new branches starting with either `dev-` or `release-`. 
+Each configuration has a `dev-*` and a `release-*` branch. They differ in the CI checks that are run when pull requests are made to update the branch. Any branch starting with either `dev-*` or  `release-*` are protected branches. You cannot (and should not) modify them directly or create new branches starting with either `dev-` or `release-`.
 
 ### Dev
 
@@ -20,7 +20,7 @@ Pull requests to the `release-*` branch should be made from the respective `dev-
 
 It is expected that the version *will* be updated before the pull request can be merged. This in turn creates a new tag for that configuration branch. It can be confusing for users if there are a large number of versions of a configuration and it is of little benefit to them. For this reason the atomicity of updates to a released configuration should be minimised, i.e.  updates should be meaningful.
 
-## Creation of a new ACCESS-OM2 Config
+## Creation of a new Config
 
 Config branches are entirely separate from the `main` history in this repository, except for a few files in `.github`. Note, you may need to be an Administrator to commit to `release-*` or `dev-*` branches directly.
 
@@ -30,7 +30,7 @@ If you are creating a brand new configuration, and don't have the config stored 
 
 ### Config is Stored in Another Repository
 
-Create a `dev-*` branch by adding the config repository as a remote and checking out the config branch: 
+Create a `dev-*` branch by adding the config repository as a remote and checking out the config branch:
 
 ```bash
 git remote add <config_repo> <config_repo_url>  # ex. git remote add config git@github.com/my/configs.git
@@ -50,9 +50,9 @@ git checkout -b release-<config_name>
 git push release-<config_name>
 ```
 
-For the CI workflows to work correctly the `release-` branch needs to have a version set, and a reproducibility checksum committed. There is a convenience workflow for this purpose: [Generate Initial Checksums](https://github.com/ACCESS-NRI/access-om2-configs/actions/workflows/generate-initial-checksums.yml). Click the "Run workflow" menu, fill in the fields and push the green "Run workflow" button.
+For the CI workflows to work correctly the `release-` branch needs to have a version set, and a reproducibility checksum committed. There is a convenience workflow for this purpose: **Generate Initial Checksums**. Click the "Run workflow" menu, fill in the fields and push the green "Run workflow" button.
 
-Once the workflow is completed there should be a new commit on the `release-*` branch, and a [tag](https://github.com/ACCESS-NRI/access-om2-configs/tags) for the specified version.
+Once the workflow is completed there should be a new commit on the `release-*` branch, and a tag for the specified version.
 
 Once the `release-*` branch has been updated those changes need to be merged **back** into the `dev-*` branch. This step is only necessary when the `release-*` branch is updated independently of the `dev-*` branch.
 
@@ -64,7 +64,7 @@ Once the `release-*` branch has been updated those changes need to be merged **b
 2. QA checks will run to ensure the configuration meets criteria for a released configuration, and to ensure consistency of released configurations.
 3. [Fix the problems identified in the QA checks](#common-changes-required), commit and push to the PR branch.
 4. Once all checks pass the pull request branch can be merged.
-4. Consider making a PR to the equivalent `release-*` branch.
+5. Consider making a PR to the equivalent `release-*` branch.
 
 Note: If this is a brand new configuration and there is no existing `release-*` branch you will [need to create one first](#create-a-new-release-branch).
 
@@ -72,11 +72,11 @@ Note: If this is a brand new configuration and there is no existing `release-*` 
 
 1. Open a PR from the `dev-*` branch of a particular configuration to the equivalent `release-*` branch
 2. QA checks will run to ensure the configuration meets criteria for a released configuration, and to ensure consistency of released configurations.
-2. Checks will also run to test if changes break reproducibility with the current major version config tag on the target branch. For example, if you are opening a PR on the `release-1deg_jra55_iaf` branch, and the last tagged version on this branch is `release-1deg_jra55_iaf-1.2`, the checksums between the config in your PR and the checksum in the config tag are compared.
-3. A comment will be posted on the PR when this is completed, notifying you whether the checksums match (in this example meaning a minor bump to `*-1.3`), or are different (meaning a major bump to `*-2.0`).
-4. Optionally, you can now modify your PR and get more reproducibility checks. Particularly in the case where bitwise reproducibility should be retained this is an opportunity to modify the configuration to enable this.
-5. Bump the version using the `!bump [major|minor]` command depending on the result of the reproducibility check. Additionally, if the checksums are different, the updated checksum will be automatically committed to the PR. Bumping the version in some way is a requirement before the PR will be mergable.
-6. Merge the PR and 
+3. Checks will also run to test if changes break reproducibility with the current major version config tag on the target branch. For example, if you are opening a PR on the `release-1deg_jra55_iaf` branch, and the last tagged version on this branch is `release-1deg_jra55_iaf-1.2`, the checksums between the config in your PR and the checksum in the config tag are compared.
+4. A comment will be posted on the PR when this is completed, notifying you whether the checksums match (in this example meaning a minor bump to `*-1.3`), or are different (meaning a major bump to `*-2.0`).
+5. Optionally, you can now modify your PR and get more reproducibility checks. Particularly in the case where bitwise reproducibility should be retained this is an opportunity to modify the configuration to enable this.
+6. Bump the version using the `!bump [major|minor]` command depending on the result of the reproducibility check. Additionally, if the checksums are different, the updated checksum will be automatically committed to the PR. Bumping the version in some way is a requirement before the PR will be mergable.
+7. Merge the PR
 
 ### Common Changes Required
 
@@ -86,7 +86,7 @@ The following fields must be set in `metadata.yaml`:
 
 **version**
 
-Use the existing `release-*` version. If there isn't an existing version set to `null`.  
+Use the existing `release-*` version. If there isn't an existing version set to `null`.
 
 **realm**
 

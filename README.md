@@ -139,7 +139,7 @@ and replace `<experiment>` with the branch name or tag of the experiment you wis
 
 ## CI and Reproducibility Checks
 
-This repository makes use of GitHub Actions to perform reproducibility checks on `ACCESS-OM2` config branches.
+This repository makes use of GitHub Actions to perform reproducibility checks on model config branches.
 
 ### Config Branches
 
