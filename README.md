@@ -38,8 +38,6 @@ Regarding the secrets and variables that must be created:
 * `secrets.SSH_USER`: A Username to login to the above `HOST`/`HOST_DATA`
 * `vars.DEPLOYMENT_TARGET`: Name of the deployment target for logging purposes (ex. `Supercomputer`)
 * `vars.EXPERIMENTS_LOCATION` - directory on the deployment target that will contain all the experiments used during testing of reproducibility across multiple runs of this workflow (ex. `/scratch/some/directory/experiments`)
-* `vars.PAYU_MODULE_LOCATION` - location of the Payu module on the deployment target (ex. `/g/data/vk83/modules`)
-* `vars.PAYU_VERSION` - version of Payu to use for the experiments (ex. `1.1`)
 
 ### File Modifications
 
@@ -109,11 +107,11 @@ Branches utilise a naming scheme of `<some kind of scheme like{resolution}_{atmo
 
 ## Supported configurations
 
-All available configurations are browsable under [the list of branches](https://github.com/ACCESS-NRI/model-configs/branches) and should also be listed below:
+All available configurations are browsable under [the list of branches](https://github.com/ACCESS-NRI/<model>-configs/branches) and should also be listed below:
 
 | Branch | Configuration Description |
 | ------ | ------------------------- |
-| [`release-example-configuration`](https://github.com/ACCESS-NRI/model-configs/tree/release-example-configuration) | Global 1&deg; model forced with JRA55-do atmospheric reanalysis in repeat-year forcing mode|
+| [`release-example-configuration`](https://github.com/ACCESS-NRI/<model>-configs/tree/release-example-configuration) | A model |
 
 There are more detailed notes contained in the respective branches for each configuration.
 
