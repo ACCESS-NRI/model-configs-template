@@ -83,7 +83,7 @@ Note: If this is a brand new configuration and there is no existing `release-*` 
 
 #### Required metadata
 
-The following fields must be set in `metadata.yaml`:
+Each configuration should have a metadata file, `metadata.yaml`, which uses the ACCESS-NRI [experiment schema](https://github.com/ACCESS-NRI/schema/blob/main/au.org.access-nri/model/output/experiment-metadata/README.md). Note that required fields of the schema are removed from file validations checks as experiment specific fields such as UUIDs should not be set for released configurations. The following fields must be set in `metadata.yaml`:
 
 ##### version
 
