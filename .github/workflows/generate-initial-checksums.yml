@@ -23,6 +23,7 @@ on:
 jobs:
   config:
     name: Read Testing Configuration
+    if: github.repository != 'ACCESS-NRI/model-configs-template'
     runs-on: ubuntu-latest
     outputs:
       python-version: ${{ steps.repro-config.outputs.python-version }}
