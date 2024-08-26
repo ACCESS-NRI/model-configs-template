@@ -38,6 +38,8 @@ Regarding the secrets and variables that must be created:
 * `secrets.SSH_USER`: A Username to login to the above `HOST`/`HOST_DATA`
 * `vars.DEPLOYMENT_TARGET`: Name of the deployment target for logging purposes (ex. `Supercomputer`)
 * `vars.EXPERIMENTS_LOCATION` - directory on the deployment target that will contain all the experiments used during testing of reproducibility across multiple runs of this workflow (ex. `/scratch/some/directory/experiments`)
+* `vars.MODULE_LOCATION` - directory on the deployment target that contains module files for payu used during reproducibility testing (ex. `/g/data/vk83/modules`)
+* `vars.PRERELEASE_MODULE_LOCATION` - directory on the deployment target that contains module files for development version of payu (ex. `/g/data/vk83/prerelease/modules`)
 
 ### File Modifications
 
