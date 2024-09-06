@@ -12,7 +12,7 @@ Each configuration has a `dev-*` and a `release-*` branch. They differ in the CI
 
 ### Dev
 
-The `dev-*` branch is where a configuration is updated. Temporary branches should be created and a pull request made to update the `dev-*` branch. Quality assurance (QA) CI checks are run on pull requests to `dev-*` branches, but not reproducibility checks. There is no requirement that the version be updated when changes are made to the `dev-` branch. So the `dev-` branch of a configuration allows for smaller changes that can be accumulated before a PR is made to the respective `release-*` branch.
+The `dev-*` branch is where a configuration is updated. Temporary branches should be created and a pull request made to update the `dev-*` branch. Quality assurance (QA) CI checks are run on pull requests to `dev-*` branches, but not reproducibility checks. There is no requirement that the version be updated when changes are made to the `dev-` branch - except on the first time that you create the `dev-*` branch. So the `dev-` branch of a configuration allows for smaller changes that can be accumulated before a PR is made to the respective `release-*` branch.
 
 ### Release
 
