@@ -5,7 +5,7 @@ A template repository for model configurations utilizing the `ACCESS-NRI/model-c
 > [!NOTE]
 > Feel free to replace this README with information on the model configurations once the TODOs have been ticked off. An example README.md is in the last section
 
-## Things TODO to get your configs repo ready
+## Things TODO to get your configarations repo ready
 
 ### Settings
 
