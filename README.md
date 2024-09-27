@@ -162,6 +162,24 @@ This means that `*-1.0` and `*-1.1` are configurations for that particular exper
 
 Similarly, `*-3.0` is not reproducible with `*-1.0`, `*-1.1` or `*-2.0`.
 
+### Updating a Configurations Version
+
+To update a configuration that you're using, you can do the following:
+
+```bash
+git fetch --tags  # Make sure your repository has all of them!
+git describe --tags  # Get the current tag
+git tag --list release-CONFIG-*  # List all available tags for CONFIG
+```
+
+You can then pick out a config tag that you want to upgrade like so:
+
+```bash
+git merge release-CONFIG-VERSION
+```
+
+[Resolve any conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line?platform=linux), add the modified files and then `git commit` with an informative commit message about the version update.
+
 ### Checks
 
 These checks are in the context of:
