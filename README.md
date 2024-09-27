@@ -168,6 +168,8 @@ To update a configuration that you're using, you can do the following:
 
 ```bash
 git fetch --tags  # Make sure your repository has all of them!
+git describe --tags  # Get the current tag
+git tag --list release-CONFIG-*  # List all available tags for CONFIG
 ```
 
 You can then pick out a config tag that you want to upgrade like so:
