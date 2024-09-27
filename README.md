@@ -168,23 +168,15 @@ To update a configuration that you're using, you can do the following:
 
 ```bash
 git fetch --tags  # Make sure your repository has all of them!
-git tag --list release-CONFIG-*  # List all available tags for CONFIG
 ```
 
 You can then pick out a config tag that you want to upgrade like so:
 
 ```bash
-git checkout release-CONFIG-VERSION
+git merge release-CONFIG-VERSION
 ```
 
-If you have made local modifications to the configuration yourself, you will have to stash and unstash your changes, and possibly resolve some conflicts:
-
-```bash
-git stash
-git checkout release-CONFIG-VERSION
-git stash pop
-# Maybe do some `git status` if there are conflicts that you need to resolve
-```
+[Resolve any conflicts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line?platform=linux), add the modified files and then `git commit` with an informative commit message about the version update.
 
 ### Checks
 
